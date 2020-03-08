@@ -3,7 +3,7 @@ import { Tile, Side, Wall } from "./Tile";
 
 export class Painter {
   private BG_COLOR = 255;
-  private TILE_WIDTH = 20;
+  private TILE_WIDTH = 15;
 
   private p5: p5;
   private cols: number;
@@ -54,6 +54,11 @@ export class Painter {
         );
 
         this.drawLine(x, y, x, y + this.TILE_WIDTH, tile.walls[Side.Left]);
+
+        if (current.i === i && current.j === j) {
+          this.p5.fill(this.p5.color(255, 0, 0));
+          this.p5.square(x, y, this.TILE_WIDTH);
+        }
       }
     }
   }
